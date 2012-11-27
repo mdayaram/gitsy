@@ -1,0 +1,11 @@
+dev:
+  repo_root: /home/git/repos
+  apollo: apollo.moovweb.com
+  admins:
+    - noj
+
+prod:
+  repo_root: /home/git/repos
+  apollo: apollo-vc01-int
+  admins:
+    - noj
