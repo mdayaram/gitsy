@@ -14,13 +14,13 @@ module Gitsy
 
     def exec(complete_cmd)
       if complete_cmd.nil? || complete_cmd.empty?
-        complete_cmd = "info"
+        complete_cmd = Info.to_s
       end
 
       cmd, *args = complete_cmd.split
       
       if @@commands[cmd].nil?
-        cmd = "info"
+        cmd = Info.to_s
       end
       
       if !@@commands[cmd].can_exec?(args)
