@@ -19,16 +19,15 @@ module Gitsy
 
       cmd, *args = complete_cmd.split
       
-      c = @@commands[cmd]
-      if c.nil?
-        c = @@commands["info"]
+      if @@commands[cmd].nil?
+        cmd = "info"
       end
       
-      if !c.can_exec?(args)
+      if !@@commands[cmd].can_exec?(args)
         raise "Permission denied."
       end
 
-      c.run(args)
+      @@commands[cmd].run(args)
     end
 
   end
