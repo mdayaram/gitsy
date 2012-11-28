@@ -10,9 +10,18 @@ module Gitsy
     end
     
     def method_missing method_id, *args
+      # Check for a key in our config first.
       if !@config[method_id.to_s].nil?
         return @config[method_id.to_s]
       end
+
+      # if method name ends in a question mark, check
+      # if a config exists after removing question mark.
+      if method_id.to_s[-1, 1] == "?"
+        key = method_id.to_s.chop
+        return !@config[key].nil?
+      end
+
       super
     end
   end
