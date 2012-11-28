@@ -1,6 +1,7 @@
 dev:
   company: Moovweb
   repo_root: /home/git/repos
+  project_check: apollo_check.rb
   admins:
     - noj
   # Uncomment if you want to use a template directory for new repositories.
@@ -9,6 +10,7 @@ dev:
 prod:
   company: Moovweb
   repo_root: /home/git/repos
+  project_check: apollo_check.rb
   admins:
     - noj
   # Uncomment if you want to use a template directory for new repositories.
