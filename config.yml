@@ -1,18 +1,20 @@
 dev:
   company: Moovweb
   repo_root: /home/git/repos
-  project_check: apollo_check.rb
   admins:
     - noj
+  # Uncomment if you want to add a check before project manip operations.
+  #project_check: apollo_check.rb
   # Uncomment if you want to use a template directory for new repositories.
   #template_dir: /home/git/template
 
 prod:
   company: Moovweb
   repo_root: /home/git/repos
-  project_check: apollo_check.rb
   admins:
     - noj
+  # Uncomment if you want to add a check before project manip operations.
+  #project_check: apollo_check.rb
   # Uncomment if you want to use a template directory for new repositories.
   #template_dir: /home/git/template
 
