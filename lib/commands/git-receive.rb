@@ -1,3 +1,4 @@
+require_relative '../checks/project'
 
 module Gitsy
   class GitReceive
@@ -12,7 +13,7 @@ module Gitsy
       project = args[0].gsub(/^'*/, "")
       project = project.gsub(/'*$/, "")
 
-      if !can_receive?(project)
+      if !Checks::Project.check?(@config, project, true)
         raise "You do not have access for this repo."
       end
 

@@ -1,3 +1,4 @@
+require_relative '../checks/project'
 
 module Gitsy
   class GitUpload
@@ -11,7 +12,8 @@ module Gitsy
       # quotes, lets remove them.
       project = args[0].gsub(/^'*/, "")
       project = project.gsub(/'*$/, "")
-      if !can_upload?(project)
+
+      if !Checks::Project.check?(@config, project, false)
         raise "You do not have access to pull this project."
       end
 
