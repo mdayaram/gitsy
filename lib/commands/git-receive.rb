@@ -26,7 +26,13 @@ module Gitsy
       repo_dir = File.join(@config.repo_root, "#{project}.git")
       if !File.exists? repo_dir
         Debug.puts("Repo doesn't exist, initializing...")
-        if !Kernel.system("git init --bare #{repo_dir} >&2")
+
+        cmd_str = "git init --bare #{repo_dir} "
+        if @config.template_dir?
+          cmd_str += "--template #{@config.template_dir} "
+        end
+
+        if !Kernel.system("#{cmd_str} >&2")
           raise "Couldn't initialize new repo #{project}!"
         end
       end

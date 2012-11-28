@@ -1,17 +1,16 @@
 dev:
-  repo_root: /home/git/repos
   company: Moovweb
+  repo_root: /home/git/repos
   admins:
     - noj
-
-  # Custom configs go here
-  apollo: apollo.moovweb.com
+  # Uncomment if you want to use a template directory for new repositories.
+  #template_dir: /home/git/template
 
 prod:
-  repo_root: /home/git/repos
   company: Moovweb
+  repo_root: /home/git/repos
   admins:
     - noj
+  # Uncomment if you want to use a template directory for new repositories.
+  #template_dir: /home/git/template
 
-  # Custom configs go here
-  apollo: apollo-vc01-int
