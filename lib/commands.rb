@@ -23,6 +23,10 @@ module Gitsy
       if c.nil?
         c = @@commands["info"]
       end
+      
+      if !c.can_exec?(args)
+        raise "Permission denied."
+      end
 
       c.run(args)
     end

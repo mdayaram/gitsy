@@ -6,23 +6,19 @@ module Gitsy
     def initialize(config)
       @config = config
     end
-    
-    def run(args)
+
+    def can_exec?(args)
       # The project argument comes in wrapped with single
       # quotes, lets remove them.
       project = args[0].gsub(/^'*/, "")
       project = project.gsub(/'*$/, "")
 
-      if !Checks::Project.check?(@config, project, false)
-        raise "You do not have access to pull this project."
-      end
-
-      Dir.chdir(@config.repo_root)
-      Kernel.exec "git", "shell", "-c", "git-upload-pack #{args.join(" ")}"
+      Checks::Project.check?(@config, project, false)
     end
 
-    def can_upload?(project)
-      true
+    def run(args)
+      Dir.chdir(@config.repo_root)
+      Kernel.exec "git", "shell", "-c", "git-upload-pack #{args.join(" ")}"
     end
 
     def self.to_s

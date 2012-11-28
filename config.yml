@@ -1,5 +1,6 @@
 dev:
   repo_root: /home/git/repos
+  company: Moovweb
   admins:
     - noj
 
@@ -8,6 +9,7 @@ dev:
 
 prod:
   repo_root: /home/git/repos
+  company: Moovweb
   admins:
     - noj
 

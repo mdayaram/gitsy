@@ -6,16 +6,21 @@ module Gitsy
     def initialize(config)
       @config = config
     end
-    
-    def run(args)
+
+    def can_exec?(args)
       # The project argument comes in wrapped with single
       # quotes, lets remove them.
       project = args[0].gsub(/^'*/, "")
       project = project.gsub(/'*$/, "")
 
-      if !Checks::Project.check?(@config, project, true)
-        raise "You do not have access for this repo."
-      end
+      Checks::Project.check?(@config, project, true)
+    end
+
+    def run(args)
+      # The project argument comes in wrapped with single
+      # quotes, lets remove them.
+      project = args[0].gsub(/^'*/, "")
+      project = project.gsub(/'*$/, "")
 
       # If repo doesn't exist, create it.
       repo_dir = File.join(@config.repo_root, "#{project}.git")
@@ -28,11 +33,6 @@ module Gitsy
 
       Dir.chdir(@config.repo_root)
       Kernel.exec "git", "shell", "-c", "git-receive-pack #{args.join(" ")}"
-    end
-
-    def can_receive?(project)
-      # Add call to apollo check
-      true
     end
 
     def self.to_s
