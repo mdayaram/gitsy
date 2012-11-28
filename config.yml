@@ -1,11 +1,15 @@
 dev:
   repo_root: /home/git/repos
-  apollo: apollo.moovweb.com
   admins:
     - noj
 
+  # Custom configs go here
+  apollo: apollo.moovweb.com
+
 prod:
   repo_root: /home/git/repos
-  apollo: apollo-vc01-int
   admins:
     - noj
+
+  # Custom configs go here
+  apollo: apollo-vc01-int
