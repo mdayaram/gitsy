@@ -1,6 +1,7 @@
 require_relative 'commands/git-receive'
 require_relative 'commands/git-upload'
 require_relative 'commands/info'
+require_relative 'commands/moov_check'
 
 module Gitsy
   class Commands
@@ -10,6 +11,7 @@ module Gitsy
       @@commands[GitReceive.to_s] = GitReceive.new(config)
       @@commands[GitUpload.to_s] = GitUpload.new(config)
       @@commands[Info.to_s] = Info.new(config)
+      @@commands[MoovCheck.to_s] = MoovCheck.new(config)
     end
 
     def exec(complete_cmd)
