@@ -11,6 +11,11 @@
 require 'net/http'
 require 'uri'
 
+if ARGV.length < 3
+  puts "Invalid call, need user, account/project, access args."
+  exit 2
+end
+
 user = ARGV[0]
 account = ARGV[1].split("/")[0]
 project = ARGV[1].split("/")[1]
@@ -27,3 +32,5 @@ end
 if response.code != "200"
   exit 1
 end
+
+puts "Access granted to #{account}/#{project} for #{user}"

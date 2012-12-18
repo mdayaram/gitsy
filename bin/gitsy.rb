@@ -13,6 +13,7 @@ module Gitsy
     Commands.new(environment).exec(ENV["SSH_ORIGINAL_COMMAND"])
     # Anything here would not get executed.
   rescue Exception => e
+    environment.puts e.message
     environment.logger.error e.message
     exit 1
   end

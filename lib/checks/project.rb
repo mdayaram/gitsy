@@ -18,6 +18,7 @@ module Gitsy
         cmd += " #{env.config.user} #{project}"
         cmd += " W" if write
         cmd += " R" if !write
+        cmd += " >&2" # ensure all output goes to stderr.
 
         Kernel.system cmd
       end

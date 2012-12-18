@@ -27,7 +27,7 @@ module Gitsy
     ######################
 
     def puts (msg)
-      $stdeer.puts msg
+      $stderr.puts msg
     end
 
     def self.puts(msg)
