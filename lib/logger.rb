@@ -1,6 +1,10 @@
 module Gitsy
   class Logger
     
+    def initialize
+      @hostname = `hostname -s`
+    end
+
     def log(level, msg)
       `logger -p local4.err "#{@hostname} gitsy[#{level}]: #{msg}"`
     end

@@ -25,7 +25,8 @@ module Gitsy
       # If repo doesn't exist, create it.
       repo_dir = File.join(@env.config.repo_root, "#{project}.git")
       if !File.exists? repo_dir
-        env.puts("Repo doesn't exist, initializing...")
+        @env.puts("Repo doesn't exist, initializing...")
+        @env.logger.info "Repository #{repo_dir} doesn't exist, initializing..."
 
         cmd_str = "git init --bare #{repo_dir} "
         if @env.config.template_dir?

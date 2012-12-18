@@ -7,6 +7,7 @@ module Gitsy
   class Commands
 
     def initialize(env)
+      @env = env
       @@commands = Hash.new
       @@commands[GitReceive.to_s] = GitReceive.new(env)
       @@commands[GitUpload.to_s] = GitUpload.new(env)
@@ -23,6 +24,7 @@ module Gitsy
       
       if @@commands[cmd].nil?
         cmd = Info.to_s
+        @env.logger.error "Command '#{complete_cmd}' not found, defaulting to 'info'"
       end
       
       if !@@commands[cmd].can_exec?(args)
