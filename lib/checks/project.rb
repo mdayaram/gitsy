@@ -4,18 +4,18 @@ module Gitsy
   module Checks
     class Project
 
-      def self.check?(config, project, write)
-        return true if !config.project_check?
+      def self.check?(env, project, write)
+        return true if !env.config.project_check?
 
-        cmd = config.project_check
-        if !Pathname.new(config.project_check).absolute?
+        cmd = env.config.project_check
+        if !Pathname.new(env.config.project_check).absolute?
           cmd = File.join(
             File.expand_path(File.dirname(__FILE__)),
             "../../ext",
-            config.project_check)
+            env.config.project_check)
         end
 
-        cmd += " #{config.user} #{project}"
+        cmd += " #{env.config.user} #{project}"
         cmd += " W" if write
         cmd += " R" if !write
 

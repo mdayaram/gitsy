@@ -3,8 +3,8 @@ require_relative '../checks/project'
 module Gitsy
   class GitUpload
 
-    def initialize(config)
-      @config = config
+    def initialize(env)
+      @env = env
     end
 
     def can_exec?(args)
@@ -13,11 +13,11 @@ module Gitsy
       project = args[0].gsub(/^'*/, "")
       project = project.gsub(/'*$/, "")
 
-      Checks::Project.check?(@config, project, false)
+      Checks::Project.check?(@env, project, false)
     end
 
     def run(args)
-      Dir.chdir(@config.repo_root)
+      Dir.chdir(@env.config.repo_root)
       Kernel.exec "git", "shell", "-c", "git-upload-pack #{args.join(" ")}"
     end
 

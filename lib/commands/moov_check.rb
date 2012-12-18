@@ -2,8 +2,8 @@
 module Gitsy
   class MoovCheck
 
-    def initialize(config)
-      @config = config
+    def initialize(env)
+      @env = env
     end
 
     def can_exec?(args)

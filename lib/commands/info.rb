@@ -2,10 +2,10 @@
 module Gitsy
   class Info
 
-    def initialize(config)
-      @config = config
-      @message = "\nHi #{@config.user}! You've successfully authenticated, "
-      @message += "but #{@config.company} does not provide shell access.\n"
+    def initialize(env)
+      @env = env
+      @message = "\nHi #{@env.config.user}! You've successfully authenticated, "
+      @message += "but #{@env.config.company} does not provide shell access.\n"
     end
 
     def can_exec?(args)

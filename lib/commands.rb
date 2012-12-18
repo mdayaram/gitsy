@@ -6,12 +6,12 @@ require_relative 'commands/moov_check'
 module Gitsy
   class Commands
 
-    def initialize(config)
+    def initialize(env)
       @@commands = Hash.new
-      @@commands[GitReceive.to_s] = GitReceive.new(config)
-      @@commands[GitUpload.to_s] = GitUpload.new(config)
-      @@commands[Info.to_s] = Info.new(config)
-      @@commands[MoovCheck.to_s] = MoovCheck.new(config)
+      @@commands[GitReceive.to_s] = GitReceive.new(env)
+      @@commands[GitUpload.to_s] = GitUpload.new(env)
+      @@commands[Info.to_s] = Info.new(env)
+      @@commands[MoovCheck.to_s] = MoovCheck.new(env)
     end
 
     def exec(complete_cmd)

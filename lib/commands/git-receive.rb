@@ -3,8 +3,8 @@ require_relative '../checks/project'
 module Gitsy
   class GitReceive
 
-    def initialize(config)
-      @config = config
+    def initialize(env)
+      @env = env
     end
 
     def can_exec?(args)
@@ -13,7 +13,7 @@ module Gitsy
       project = args[0].gsub(/^'*/, "")
       project = project.gsub(/'*$/, "")
 
-      Checks::Project.check?(@config, project, true)
+      Checks::Project.check?(@env, project, true)
     end
 
     def run(args)
@@ -23,13 +23,13 @@ module Gitsy
       project = project.gsub(/'*$/, "")
 
       # If repo doesn't exist, create it.
-      repo_dir = File.join(@config.repo_root, "#{project}.git")
+      repo_dir = File.join(@env.config.repo_root, "#{project}.git")
       if !File.exists? repo_dir
-        Debug.puts("Repo doesn't exist, initializing...")
+        env.puts("Repo doesn't exist, initializing...")
 
         cmd_str = "git init --bare #{repo_dir} "
-        if @config.template_dir?
-          cmd_str += "--template #{@config.template_dir} "
+        if @env.config.template_dir?
+          cmd_str += "--template #{@env.config.template_dir} "
         end
 
         if !Kernel.system("#{cmd_str} >&2")
@@ -37,7 +37,7 @@ module Gitsy
         end
       end
 
-      Dir.chdir(@config.repo_root)
+      Dir.chdir(@env.config.repo_root)
       Kernel.exec "git", "shell", "-c", "git-receive-pack #{args.join(" ")}"
     end
 
