@@ -30,7 +30,11 @@ module Gitsy
 
         cmd_str = "git init --bare #{repo_dir} "
         if @env.config.template_dir?
-          cmd_str += "--template #{@env.config.template_dir} "
+          tmp_dir = @env.config.template_dir
+          if !Pathname.new(@env.config.template_dir).absolute?
+            tmp_dir = File.join(@env.gitsy_root, @env.config.template_dir)
+          end
+          cmd_str += "--template #{tmp_dir} "
         end
 
         if !Kernel.system("#{cmd_str} >&2")

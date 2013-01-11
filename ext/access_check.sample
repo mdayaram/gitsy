@@ -1,0 +1,62 @@
+#!/bin/bash
+
+###############################################################################
+# This is an example script for providing a way to access check a push/pull
+# to a git project.
+#
+# Exiting with a status code of 0 tells gitsy that the attempted operation has
+# passed all access checks necessary and is safe to perform.
+#
+# A non-zero exit status will cause gitsy to block the requested operation.
+# 
+# Anything outputed to stdout or stderr will be shown to the user.
+###############################################################################
+
+# The first argument is the username provided in the ~/.ssh/authorized_keys file.
+USER=$1
+
+# The second argument is the project being accessed (full path from repo_root).
+PROJECT=$2
+
+# The third argument is the type of access -- R for read-only operations, W for
+# write.
+RW_ACCESS=$3
+
+if [ -z "$USER" ]; then
+	echo "Oh oh, I'm not sure who you are."
+	echo "Please leave, you're scaring me."
+	exit 1
+fi
+
+if [ -z "$PROJECT" ]; then
+	echo "Hi ${USER}!"
+	echo "Unfortunately I don't know what project you want to access."
+	echo "So I'm going to have to ask you to leave."
+	echo "Goodbye"
+	exit 1
+fi
+
+## RW_ACCESS is checked down below.
+
+######################################################################
+### Enter logic on decided whether user is allowed to perform action.
+
+echo "Hello there ${USER}!"
+echo "Let's see if you have the right permissions to access ${PROJECT}."
+printf "Hmmmm..."
+sleep 1s
+printf ".."
+sleep 1s 
+printf "..."
+echo ""
+if [ "$RW_ACCESS" == "W" ]; then
+	echo "OK! So I see you want to push to ${PROJECT}, eh?  I suppose I'll allow it."
+elif [ "$RW_ACCESS" == "R" ]; then
+	echo "Ahhh, so you want to clone/pull now, do you?  Alrighty! Go for it!"
+else
+	echo "Wait, what do you want to do again?  I'm not sure I understand..."
+	echo "Maybe try again some other time..."
+	exit 1
+fi
+
+exit 0

@@ -22,6 +22,14 @@ module Gitsy
       @@instance.config
     end
 
+    def gitsy_root
+      File.expand_path(File.join(File.dirname(__FILE__), '..'))
+    end
+
+    def self.gitsy_root
+      @@instance.gitsy_root
+    end
+
     ######################
     # User Visible Output
     ######################

@@ -9,18 +9,18 @@ module Gitsy
 
         cmd = env.config.project_check
         if !Pathname.new(env.config.project_check).absolute?
-          cmd = File.join(
-            File.expand_path(File.dirname(__FILE__)),
-            "../../ext",
-            env.config.project_check)
+          cmd = File.join(env.gitsy_root, env.config.project_check)
         end
 
-        cmd += " #{env.config.user} #{project}"
-        cmd += " W" if write
-        cmd += " R" if !write
-        cmd += " >&2" # ensure all output goes to stderr.
+        if File.exists? cmd
+          cmd += " #{env.config.user} #{project}"
+          cmd += " W" if write
+          cmd += " R" if !write
+          cmd += " >&2" # ensure all output goes to stderr.
 
-        Kernel.system cmd
+          return Kernel.system cmd
+        end
+        return false
       end
 
     end

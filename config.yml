@@ -3,18 +3,18 @@ dev:
   repo_root: /home/git/repos
   admins:
     - noj
-  # Uncomment if you want to add a check before project manip operations.
-  #project_check: apollo_check.rb
+  # Comment if you want to allow all git operations to all users.
+  project_check: ext/access_check.sample
   # Uncomment if you want to use a template directory for new repositories.
-  #template_dir: /home/git/template
+  #template_dir: ext/template
 
 prod:
   company: Moovweb
   repo_root: /home/git/repos
   admins:
     - noj
-  # Uncomment if you want to add a check before project manip operations.
-  #project_check: apollo_check.rb
+  # Comment if you want to allow all git operations to all users.
+  project_check: ext/access_check.sample
   # Uncomment if you want to use a template directory for new repositories.
-  #template_dir: /home/git/template
+  #template_dir: ext/template
 
