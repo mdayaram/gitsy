@@ -14,3 +14,5 @@ command="/path/to/gitsy/gitsy.sh noj",no-port-forwarding,no-X11-forwarding,no-ag
 * For easy config, allow the reading of ~/.gitsyrc file for configs that override our defaults
 * Have custom commands be configurable, as in, name: /path/to/script/to/run
 * When creating a new repo, use a linked template rather than a copy of the template.
+* Consider adding an http server module.
+	* Example: http://www.kernel.org/pub/software/scm/git/docs/howto/setup-git-server-over-http.txt
