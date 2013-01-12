@@ -1,20 +1,8 @@
-dev:
-  company: Moovweb
-  repo_root: /home/git/repos
-  admins:
-    - noj
-  # Comment if you want to allow all git operations to all users.
-  project_check: ext/access_check.sample
-  # Uncomment if you want to use a template directory for new repositories.
-  #template_dir: ext/template
-
-prod:
-  company: Moovweb
-  repo_root: /home/git/repos
-  admins:
-    - noj
-  # Comment if you want to allow all git operations to all users.
-  project_check: ext/access_check.sample
-  # Uncomment if you want to use a template directory for new repositories.
-  #template_dir: ext/template
-
+company: Moovweb
+repo_root: /home/git/repos
+admins:
+  - noj
+# Comment if you want to allow all git operations to all users.
+project_check: ext/access_check.sample
+# Uncomment if you want to use a template directory for new repositories.
+#template_dir: ext/template

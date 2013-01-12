@@ -5,7 +5,7 @@ module Gitsy
 
     def initialize(environment, user)
       config_file = File.join(File.dirname(__FILE__), "../config.yml")
-      @config = YAML.load(File.open(config_file))[environment]
+      @config = YAML.load(File.open(config_file))
       @config["user"] = user
     end
     
