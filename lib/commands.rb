@@ -1,7 +1,7 @@
 require_relative 'commands/git-receive'
 require_relative 'commands/git-upload'
-require_relative 'commands/info'
-require_relative 'commands/moov_check'
+require_relative 'commands/custom'
+require_relative 'commands/default'
 
 module Gitsy
   class Commands
@@ -9,21 +9,25 @@ module Gitsy
     def initialize(env)
       @env = env
       @@commands = Hash.new
+
+      @env.config.commands.each do |cmd, options|
+        @@commands[cmd] = Custom.new(env, cmd, options)
+      end
+      
       @@commands[GitReceive.to_s] = GitReceive.new(env)
       @@commands[GitUpload.to_s] = GitUpload.new(env)
-      @@commands[Info.to_s] = Info.new(env)
-      @@commands[MoovCheck.to_s] = MoovCheck.new(env)
+      @@commands[Default.to_s] = Default.new(env, @@commands)
     end
 
     def exec(complete_cmd)
       if complete_cmd.nil? || complete_cmd.empty?
-        complete_cmd = Info.to_s
+        complete_cmd = Default.to_s
       end
 
       cmd, *args = complete_cmd.split
       
       if @@commands[cmd].nil?
-        cmd = Info.to_s
+        cmd = Default.to_s
         @env.logger.error "Command '#{complete_cmd}' not found, defaulting to 'info'"
       end
       

@@ -8,8 +8,8 @@ module Gitsy
         return true if !env.config.project_check?
 
         cmd = env.config.project_check
-        if !Pathname.new(env.config.project_check).absolute?
-          cmd = File.join(env.gitsy_root, env.config.project_check)
+        if !Pathname.new(cmd).absolute?
+          cmd = File.join(env.gitsy_root, cmd)
         end
 
         if File.exists? cmd

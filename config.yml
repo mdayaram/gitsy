@@ -6,3 +6,10 @@ admins:
 project_check: ext/access_check.sample
 # Uncomment if you want to use a template directory for new repositories.
 #template_dir: ext/template
+commands:
+  info: 
+    exec: ext/info.rb
+    default: true
+  moov_check:
+    exec: ext/moov_check.rb
+    admin_only: true

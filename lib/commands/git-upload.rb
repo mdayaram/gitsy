@@ -21,6 +21,10 @@ module Gitsy
       Kernel.exec "git", "shell", "-c", "git-upload-pack #{args.join(" ")}"
     end
 
+    def default?
+      false
+    end
+
     def self.to_s
       "git-upload-pack"
     end

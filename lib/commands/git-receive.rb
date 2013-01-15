@@ -46,6 +46,10 @@ module Gitsy
       Kernel.exec "git", "shell", "-c", "git-receive-pack #{args.join(" ")}"
     end
 
+    def default?
+      false
+    end
+
     def self.to_s
       "git-receive-pack"
     end
