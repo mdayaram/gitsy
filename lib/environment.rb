@@ -11,7 +11,7 @@ module Gitsy
     end
 
     ##############
-    #i Confings
+    # Confings
     ##############
 
     def config
