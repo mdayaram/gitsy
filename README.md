@@ -13,5 +13,3 @@ command="/path/to/gitsy/bin/gitsy noj",no-port-forwarding,no-X11-forwarding,no-a
 
 * For easy config, allow the reading of ~/.gitsyrc file for configs that override our defaults
 * When creating a new repo, use a linked template rather than a copy of the template.
-* Consider adding an http server module.
-	* Example: http://www.kernel.org/pub/software/scm/git/docs/howto/setup-git-server-over-http.txt
