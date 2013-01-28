@@ -1,15 +1,14 @@
-company: Moovweb
 repo_root: /home/git/repos
 admins:
   - noj
 # Comment if you want to allow all git operations to all users.
-project_check: ext/access_check.sample
+project_check: samples/access_check
 # Uncomment if you want to use a template directory for new repositories.
 #template_dir: ext/template
 commands:
   info: 
-    exec: ext/info.rb
+    exec: samples/info
     default: true
   moov_check:
-    exec: ext/moov_check.rb
+    exec: samples/moov_check
     admin_only: true
