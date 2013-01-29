@@ -28,7 +28,7 @@ module Gitsy
       
       if @@commands[cmd].nil?
         cmd = Default.to_s
-        @env.logger.error "Command '#{complete_cmd}' not found, defaulting to 'info'"
+        @env.logger.error "Command '#{complete_cmd}' not found, running default."
       end
       
       if !@@commands[cmd].can_exec?(args)
