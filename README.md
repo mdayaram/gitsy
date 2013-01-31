@@ -13,3 +13,7 @@ command="/path/to/gitsy/bin/gitsy noj",no-port-forwarding,no-X11-forwarding,no-a
 
 * For easy config, allow the reading of ~/.gitsyrc file for configs that override our defaults
 * When creating a new repo, use a linked template rather than a copy of the template.
+	* Linking only really applies to two things in the bare repo:
+		1. The config file which is configurations for the repo (most likely the same accross the board).
+		2. The hooks directory.
+	* Probably easier to just provide options to create links for those.
