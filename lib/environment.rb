@@ -9,19 +9,22 @@ module Gitsy
     @@template = File.expand_path(File.join(File.dirname(__FILE__), "../template"))
 
     def initialize(env, user)
+      @logger = Logger.new
       setup(@@template, @@config_dir)
       @config = Config.new(@@config_dir, user)
-      @logger = Logger.new
-      @@instance = self
     end
     
     # If our .gitsy folder doesn't exist, create it with our template.
     def setup(template_path, config_path)
       if !File.directory? config_path and !File.exists? config_path
+        logger.info "Config path #{config_path} was not found, creating from template..."
         FileUtils.mkdir_p(config_path)
         FileUtils.cp_r(Dir[File.join(template_path, "*")], config_path)
       elsif !File.directory? config_path
-        raise "Cannot create gitsy configuration directory. #{config_path} exists but is not a directory."
+        err_msg = "Config path #{config_path} exists, but is not a valid gitsy "
+        err_msg += "configuration directory.  Delete it to create a new one from a template."
+        logger.error err_msg
+        raise "Gitsy is not configured correctly. Please check the logs for more details."
       end
     end
 

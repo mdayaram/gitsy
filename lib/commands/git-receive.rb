@@ -25,7 +25,7 @@ module Gitsy
       # If repo doesn't exist, create it.
       repo_dir = File.join(@env.config.repo_root, "#{project}.git")
       if !File.exists? repo_dir
-        @env.puts("Repo doesn't exist, initializing...")
+        @env.puts("Repository doesn't exist, initializing...")
         @env.logger.info "Repository #{repo_dir} doesn't exist, initializing..."
 
         cmd_str = "git init --bare #{repo_dir} "
@@ -35,7 +35,7 @@ module Gitsy
         end
 
         if !Kernel.system("#{cmd_str} >&2")
-          raise "Couldn't initialize new repo #{project}!"
+          raise "Couldn't initialize new repository #{project}!"
         end
 
         link_hooks(repo_dir)
@@ -62,6 +62,7 @@ module Gitsy
         hooks_path = File.expand_path(@env.config.link_template_hooks)
         FileUtils.rm_rf(link_hooks_path)
         File.symlink(hooks_path, link_hooks_path)
+        @env.logger.info "Created link to hooks"
       end
     end
 
@@ -71,6 +72,7 @@ module Gitsy
         config_path = File.expand_path(@env.config.link_template_config)
         FileUtils.rm_rf(link_config_path)
         File.symlink(config_path, link_config_path)
+        @env.logger.info "Created link to config"
       end
     end
 

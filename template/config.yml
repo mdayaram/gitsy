@@ -4,7 +4,7 @@ admins:
 # Comment if you want to allow all git operations to all users.
 project_check: ~/.gitsy/examples/access_check
 # Uncomment if you want to use a template directory for new repositories.
-#template_dir: ext/template
+#template_dir: ~/.gitsy/examples/bare-template
 #link_template_hooks: ~/.gitsy/examples/bare-template/hooks
 #link_template_config: ~/.gitsy/examples/bare-template/config
 commands:

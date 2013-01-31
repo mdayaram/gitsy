@@ -11,5 +11,6 @@ command="/path/to/gitsy/bin/gitsy noj",no-port-forwarding,no-X11-forwarding,no-a
 
 ### TODO
 
-1. Logging when creating hook or config links
-2. Logging when creating new template for .gitsy config directory.
+1. Add documentation/comments in config.yml that explains different configurations.
+2. Make it into a gem!
+3. Add some more examples for fun things, like adding a key to authorized_hosts
