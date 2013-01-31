@@ -1,0 +1,5 @@
+#!/bin/sh
+
+echo "* UPDATE"
+echo "   | Oh my, did we just stumble into the update git hook?"
+echo "   | We did!"

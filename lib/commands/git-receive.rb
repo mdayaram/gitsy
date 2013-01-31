@@ -37,6 +37,9 @@ module Gitsy
         if !Kernel.system("#{cmd_str} >&2")
           raise "Couldn't initialize new repo #{project}!"
         end
+
+        link_hooks(repo_dir)
+        link_config(repo_dir)
       end
 
       Dir.chdir(@env.config.repo_root)
@@ -49,6 +52,26 @@ module Gitsy
 
     def self.to_s
       "git-receive-pack"
+    end
+
+    private
+
+    def link_hooks(repo_path)
+      if @env.config.link_template_hooks?
+        link_hooks_path = File.join(repo_path, "hooks")
+        hooks_path = File.expand_path(@env.config.link_template_hooks)
+        FileUtils.rm_rf(link_hooks_path)
+        File.symlink(hooks_path, link_hooks_path)
+      end
+    end
+
+    def link_config(repo_path)
+      if @env.config.link_template_config?
+        link_config_path = File.join(repo_path, "config")
+        config_path = File.expand_path(@env.config.link_template_config)
+        FileUtils.rm_rf(link_config_path)
+        File.symlink(config_path, link_config_path)
+      end
     end
 
   end

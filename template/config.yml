@@ -5,6 +5,8 @@ admins:
 project_check: ~/.gitsy/examples/access_check
 # Uncomment if you want to use a template directory for new repositories.
 #template_dir: ext/template
+#link_template_hooks: ~/.gitsy/examples/bare-template/hooks
+#link_template_config: ~/.gitsy/examples/bare-template/config
 commands:
   info: 
     exec: ~/.gitsy/examples/info

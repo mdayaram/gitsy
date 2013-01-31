@@ -1,0 +1,5 @@
+#!/bin/sh
+
+echo "* PRE-RECEIVE"
+echo "   | This is the pre-receive hook!"
+echo "   | We haven't gotten any refs yet!"

@@ -1,0 +1,5 @@
+#!/bin/sh
+
+echo "* POST-RECEIVE"
+echo "   | This is the post-receive hook!"
+echo "   | We got our refs and are ready to roll!"

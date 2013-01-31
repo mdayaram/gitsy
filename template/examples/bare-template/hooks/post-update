@@ -1,0 +1,4 @@
+#!/bin/sh
+
+echo "* POST-UPDATE"
+echo "   | Behold! The post-update git hook is being executed!"
