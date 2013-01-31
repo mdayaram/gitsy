@@ -2,13 +2,13 @@ repo_root: /home/git/repos
 admins:
   - noj
 # Comment if you want to allow all git operations to all users.
-project_check: samples/access_check
+project_check: examples/access_check
 # Uncomment if you want to use a template directory for new repositories.
 #template_dir: ext/template
 commands:
   info: 
-    exec: samples/info
+    exec: examples/info
     default: true
   moov_check:
-    exec: samples/moov_check
+    exec: examples/moov_check
     admin_only: true
