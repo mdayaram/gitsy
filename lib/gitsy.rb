@@ -3,7 +3,6 @@
 require File.join(File.expand_path(File.dirname(__FILE__)), "../lib/init")
 
 require_relative '../lib/environment'
-require_relative '../lib/debug'
 require_relative '../lib/commands'
 
 module Gitsy
