@@ -28,20 +28,8 @@ module Gitsy
     end
     
     def run(args)
-      # If this is a path to an executable, check if it's absolute or relative.
-      cmd = @executable
-      if !Pathname.new(cmd).absolute?
-        cmd = File.join(@env.gitsy_root, cmd)
-      end
-
-      # After resolving the relative path, if it doesn't exist, then it's
-      # probably an executable in our PATH, so just run it straight up.
-      if !File.exists? cmd
-        cmd = @executable
-      end
-
       # First argument will be the user that's running, then any others.
-      Kernel.exec "#{cmd} #{@env.config.user} #{args.join(" ")}"
+      Kernel.exec "#{@executable} #{@env.config.user} #{args.join(" ")}"
     end
 
     def default?

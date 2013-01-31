@@ -33,10 +33,6 @@ module Gitsy
       @config
     end
 
-    def gitsy_root
-      File.expand_path(File.join(File.dirname(__FILE__), '..'))
-    end
-
     def gitsy_conf
       @@config_dir
     end
