@@ -3,8 +3,8 @@ require 'yaml'
 module Gitsy
   class Config
 
-    def initialize(environment, user)
-      config_file = File.join(File.dirname(__FILE__), "../config.yml")
+    def initialize(config_dir, user)
+      config_file = File.join(config_dir, "config.yml")
       @config = YAML.load(File.open(config_file))
       @config["user"] = user
     end
