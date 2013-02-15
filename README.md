@@ -12,5 +12,6 @@ command="/path/to/gitsy/bin/gitsy noj",no-port-forwarding,no-X11-forwarding,no-a
 ### TODO
 
 1. Add documentation/comments in config.yml that explains different configurations.
-2. Make it into a gem!
-3. Add some more examples for fun things, like adding a key to authorized_hosts
+2. Make it into a gem! `bundle gem <gemname>`
+3. Add some more examples for fun things, like adding a key to authorized_hosts,
+	 check if a user has read or write access to a specific repo, etc..
