@@ -15,3 +15,5 @@ command="/path/to/gitsy/bin/gitsy noj",no-port-forwarding,no-X11-forwarding,no-a
 2. Make it into a gem! `bundle gem <gemname>`
 3. Add some more examples for fun things, like adding a key to authorized_hosts,
 	 check if a user has read or write access to a specific repo, etc..
+4. Setup a configuration for queuing, aka, allow maybe only 10 git request at
+	 a time, and queue the rests.
