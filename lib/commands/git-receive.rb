@@ -28,7 +28,7 @@ module Gitsy
         @env.puts("Repository doesn't exist, initializing...")
         @env.logger.info "Repository #{repo_dir} doesn't exist, initializing..."
 
-        cmd_str = "git init --bare #{repo_dir} "
+        cmd_str = "git init -q --bare #{repo_dir} "
         if @env.config.template_dir?
           tmp_dir = @env.config.template_dir
           cmd_str += "--template #{tmp_dir} "
