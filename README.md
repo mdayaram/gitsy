@@ -1,7 +1,8 @@
-gitsy
+Gitsy
 =====
 
-Git Bare Repository Manager
+Gitsy is a set of Ruby scripts used to manager bare git repositories in
+a central server.
 
 Example `authorized_keys` entry:
 
