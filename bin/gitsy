@@ -1,10 +1,13 @@
-#!/usr/bin/env bash
+#!/usr/bin/env ruby
+require 'gitsy'
 
-###########################################################################
-# Needs one argument, the username of the person executing the git command.
-# Original SSH command is also expected to be in the environment variable
-# SSH_ORIGINAL_COMMAND
-
-DIR="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-ruby "$DIR/../lib/gitsy.rb" "prod" $@
-
+environment = Gitsy::Environment.new(ARGV[0], ARGV[1])
+environment.logger.info "#{ARGV[1]} executing #{ENV['SSH_ORIGINAL_COMMAND']}"
+#begin
+  Gitsy::Commands.new(environment).exec(ENV["SSH_ORIGINAL_COMMAND"])
+  # Anything here would not get executed.
+#rescue Exception => e
+#  environment.puts e.message
+#  environment.logger.error e.message
+#  exit 1
+#end

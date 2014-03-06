@@ -22,7 +22,7 @@ module Gitsy
         return !@config[key].nil?
       end
 
-      super
+      #super
     end
   end
 end

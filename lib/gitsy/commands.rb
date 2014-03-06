@@ -1,7 +1,7 @@
-require_relative 'commands/git-receive'
-require_relative 'commands/git-upload'
-require_relative 'commands/custom'
-require_relative 'commands/default'
+require 'gitsy/commands/git-receive'
+require 'gitsy/commands/git-upload'
+require 'gitsy/commands/custom'
+require 'gitsy/commands/default'
 
 module Gitsy
   class Commands
