@@ -1,4 +1,3 @@
-
 module Gitsy
   module Checks
     class Admin
