@@ -2,8 +2,8 @@
 
 Gem::Specification.new do |gem|
   gem.name          = "gitsy"
-  gem.version       = "0.0.1"
-  gem.authors       = ["Manoj", "Jaja"]
+  gem.version       = File.read("VERSION").strip
+  gem.authors       = ["Noj", "Jaja"]
   gem.email         = ["m@noj.cc", "jbussdieker@gmail.com"]
   gem.summary       = %q{Simple git server.}
   gem.homepage      = ""
