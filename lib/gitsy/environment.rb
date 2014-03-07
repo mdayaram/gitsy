@@ -13,7 +13,7 @@ module Gitsy
       setup(@@template, @@config_dir)
       @config = Config.new(@@config_dir, user)
     end
-    
+
     # If our .gitsy folder doesn't exist, create it with our template.
     def setup(template_path, config_path)
       if !File.directory? config_path and !File.exists? config_path
@@ -51,6 +51,6 @@ module Gitsy
     def logger
       @logger
     end
-    
+
   end
 end
