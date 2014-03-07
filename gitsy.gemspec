@@ -5,8 +5,10 @@ Gem::Specification.new do |gem|
   gem.version       = File.read("VERSION").strip
   gem.authors       = ["Noj", "Jaja"]
   gem.email         = ["m@noj.cc", "jbussdieker@gmail.com"]
+  gem.license       = "MIT"
   gem.summary       = %q{Simple git server.}
-  gem.homepage      = ""
+  gem.description   = %q{Simple git server with command management.}
+  gem.homepage      = "https://github.com/mdayaram/gitsy"
 
   gem.files         = `git ls-files`.split($/)
 
@@ -14,6 +16,6 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
 
-  gem.add_development_dependency 'rake'
+  gem.add_development_dependency 'rake', '~> 0.8'
 end
 
