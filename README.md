@@ -1,4 +1,4 @@
-Gitsy
+Gitsy 
 =====
 
 Gitsy is a set of Ruby scripts used to manager bare git repositories in
